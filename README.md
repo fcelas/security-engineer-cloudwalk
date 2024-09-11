@@ -24,7 +24,7 @@ Projeto para o processo seletivo da vaga de Security Engineer da CloudWalk. Desa
     - `DELETE`
     - `PATCH`
     - `OPTIONS`
-- **ClientRequestURI:** URI Requisitada;
+- **ClientRequestPath:** URI Requisitada;
   - Inspeção de padrões de URI: Requisições que contêm strings específicas, como ../../ (tentativas de path traversal) ou parâmetros suspeitos, podem indicar ataques de injeção ou exploração de vulnerabilidades.
   - Bloqueio de acessos a URIs específicas: Proteger páginas sensíveis (ex.: /admin, /login, /config).
 - **ClientRequestReferer:** Referer da Requisição;
@@ -45,6 +45,11 @@ Projeto para o processo seletivo da vaga de Security Engineer da CloudWalk. Desa
   - Análise de portas incomuns: Embora o foco geralmente seja na porta de destino, portas de origem incomuns podem indicar tentativas de disfarçar tráfego malicioso.
 
 ## Campos dos logs:
+- **Action:** 
+  - Permit: tráfego liberado;
+  - Drop: tráfego dropado;
+  - Allow: tráfego permitido;
+  - Block: tráfego bloqueado;
 - **Severidade:** diz respeito ao nível de "preocupação" de uma requisição. Ex: requisições em países suspeitos possuem severidade mais alta.
   - 0: info
   - 1: baixa
