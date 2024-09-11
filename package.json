@@ -1,0 +1,15 @@
+{
+  "name": "security-engineer-cloudwalk",
+  "version": "1.0.0",
+  "description": "Projeto para o processo seletivo da vaga de Security Engineer da CloudWalk. Desafio proposto foi a criação de um programa em JavaScript que simula o comportamento de um Firewall:\r - Allowlist & Blocklist + logs;\r - Processamento de tráfego;\r - Identificar padrões de tráfego;\r - Criar e definir políticas;\r - Identificação e gerenciamento de ameaças:\r   - Identificar, bloquear e/ou sinalizar tráfego que possa representar uma ameaça potencial.\r   - Allowlist.\r   - Blocklist onde todo o tráfego proveniente de IPs especificados seja bloqueado por 12 horas.\r   - Ações de bloqueio e permissão devem ser rastreáveis e reversíveis.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csv-parser": "^3.0.0"
+  }
+}
