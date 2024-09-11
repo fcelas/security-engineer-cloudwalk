@@ -45,11 +45,12 @@ Projeto para o processo seletivo da vaga de Security Engineer da CloudWalk. Desa
   - Análise de portas incomuns: Embora o foco geralmente seja na porta de destino, portas de origem incomuns podem indicar tentativas de disfarçar tráfego malicioso.
 
 ## Campos dos logs:
-- **Action:** 
+- **Action:** Ação tomada pelo Firewall.
   - Permit: tráfego liberado;
   - Drop: tráfego dropado;
   - Allow: tráfego permitido;
   - Block: tráfego bloqueado;
+
 - **Severidade:** diz respeito ao nível de "preocupação" de uma requisição. Ex: requisições em países suspeitos possuem severidade mais alta.
   - 0: info
   - 1: baixa
@@ -63,6 +64,8 @@ Projeto para o processo seletivo da vaga de Security Engineer da CloudWalk. Desa
 **2. Verifica se esquema HTTP deve ser bloqueado;**
 
 **3. Bloqueia métodos suspeitos;**
+
+**4. Bloqueia tentativas de ataque com base no ClientRequestPath;**
 
 
 

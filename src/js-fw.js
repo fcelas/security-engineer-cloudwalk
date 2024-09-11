@@ -15,12 +15,30 @@ let bloquearMetodos = false;
 let bloquearGeoSuspeito = false;
 let resultados = [];
 
+//listas de métodos e países de origem suspeitos
 const metodosSuspeitos = ['PUT', 'DELETE', 'PATCH', 'OPTIONS']
-const paisesSuspeitos = ['cn', 'us']
+const paisesSuspeitos = ['cn']
 
+//regex de ataques
+const regexMap = [
+    { regex: /\/";!--"<XSS>=&\{\(\)\}/, descricao: 'ataque XSS' },
+    { regex: /\/%00%01%02%03%04%05%06%07/, descricao: 'URL Encoding' },
+    { regex: /(?:\/\.\.){10}\/etc\/shadow/, descricao: 'Path Traversal - /etc/shadow' },
+    { regex: /(?:\/\.\.){4}\/windows\/system32\/cmd\.exe/, descricao: 'Path Traversal - /windows/system32/cmd.exe' },
+    { regex: /(?:\/\.\.){3}\/etc\/passwd/, descricao: 'Path Traversal - /etc/passwd' },
+    { regex: /(?:\/\.\.){3}\/windows\/win\.ini/, descricao: 'Path Traversal - /windows/win.ini' },
+    { regex: /(?:\/\.\.){2}\/boot\.ini/, descricao: 'Path Traversal - /boot.ini' },
+    { regex: /\/\.git\/config/, descricao: 'Exposure of .git/config' },
+    { regex: /<iframe src=['"]javascript:alert\(1\)['"]><\/iframe>/, descricao: 'ataque XSS via iframe' },
+    { regex: /<img src=['"]x['"] onerror=['"]alert\(1\)['"]>/, descricao: 'ataque XSS via img' },
+    { regex: /<marquee><img src=['"]1['"] onerror=['"]alert\(1\)['"]><\/marquee>/, descricao: 'ataque XSS via marquee' },
+    { regex: /<meta http-equiv=['"]refresh['"] content=['"]0;url=javascript:alert\(1\)['"]>/, descricao: 'ataque XSS via meta refresh' },
+    { regex: /<script>alert\(['"]XSS['"]\)<\/script>/, descricao: 'ataque XSS via script' }
+];
 
-function analisaTrafego(ip, scheme, metodo, pais) {
-    let resultado = { ip: ip, scheme: scheme, metodo: metodo, pais: pais, severidade: '0', status: '' };
+//função que analisa tráfego
+function analisaTrafego(ip, scheme, metodo, pais, path) {
+    let resultado = { status: '', ip: ip, scheme: scheme, metodo: metodo, pais: pais, severidade: '0', path: path };
 
     if (blocklist.includes(ip)) {
         resultado.status = 'Tráfego bloqueado: blocklist';
@@ -50,6 +68,12 @@ function analisaTrafego(ip, scheme, metodo, pais) {
             resultado.status = `Tráfego permitido: Método HTTP ${metodo} não permitido`;
         } else if (bloquearMetodos && metodosSuspeitos.includes(metodo)) {
             resultado.status = `Tráfego bloqueado: Método HTTP ${metodo} não permitido`;
+        }
+
+        const ataqueDetectado = regexMap.find(({ regex }) => regex.test(path));
+        if (ataqueDetectado) {
+            resultado.status = `Tráfego bloqueado: ${ataqueDetectado.descricao}`;
+            resultado.severidade = '4';
         }
     }
 
@@ -82,7 +106,8 @@ rl.question('Deseja bloquear requisições HTTP? (s/n): ', (answerHTTP) => {
             const scheme = row.ClientRequestScheme.toLowerCase();
             const metodo = row.ClientRequestMethod.toUpperCase();
             const pais = row.ClientCountry.toLowerCase();
-            analisaTrafego(ipOrigem, scheme, metodo, pais);
+            const path = row.ClientRequestPath;
+            analisaTrafego(ipOrigem, scheme, metodo, pais, path);
         })
         .on('end', () => {
             fs.writeFileSync('analise_trafego.json', JSON.stringify(resultados, null, 2));
