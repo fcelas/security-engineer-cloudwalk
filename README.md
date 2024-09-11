@@ -59,7 +59,9 @@ Projeto para o processo seletivo da vaga de Security Engineer da CloudWalk. Desa
 
 ## Regras e Políticas do FW:
 **1. Verifica se IP de Origem está em Blocklist ou Allowlist;**
+
 **2. Verifica se esquema HTTP deve ser bloqueado;**
+
 **3. Bloqueia métodos suspeitos;**
 
 
