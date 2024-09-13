@@ -1,6 +1,11 @@
 const fs = require('fs');
 const csv = require('csv-parser');
 const readline = require('readline');
+const path = require('path');
+
+const LOG_DIR = path.join(__dirname, 'logs');
+const LIST_DIR = path.join(__dirname, 'listas');
+const RESULT_DIR = path.join(__dirname, 'resultados');
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -57,7 +62,7 @@ function detectarDDoS(ip, porta) {
 
 function logConfig(mensagem) {
     const logEntry = `${new Date().toISOString()} - ${mensagem}\n`;
-    fs.appendFileSync('config_log.txt', logEntry);
+    fs.appendFileSync(path.join(LOG_DIR, 'config_log.txt'), logEntry);
 }
 
 function adicionarNaBlocklist(ip) {
@@ -115,12 +120,12 @@ function limparBlocklistExpirada() {
 
 function salvarBlocklist() {
     const dados = JSON.stringify(Array.from(blocklist.entries()));
-    fs.writeFileSync('blocklist_temp.json', dados);
+    fs.writeFileSync(path.join(LIST_DIR, 'blocklist_temp.json'), dados);
 }
 
 function carregarBlocklist() {
     try {
-        const dados = fs.readFileSync('blocklist_temp.json', 'utf-8');
+        const dados = fs.readFileSync(path.join(LIST_DIR, 'blocklist_temp.json'), 'utf-8');
         blocklist = new Map(JSON.parse(dados));
         console.log('Blocklist temporária carregada do arquivo.');
         logConfig('Blocklist temporária carregada do arquivo.');
@@ -150,12 +155,12 @@ function removerDaAllowlist(ip) {
 
 function salvarAllowlist() {
     const dados = JSON.stringify(Array.from(allowlist.entries()));
-    fs.writeFileSync('allowlist.json', dados);
+    fs.writeFileSync(path.join(LIST_DIR, 'allowlist.json'), dados);
 }
 
 function carregarAllowlist() {
     try {
-        const dados = fs.readFileSync('allowlist.json', 'utf-8');
+        const dados = fs.readFileSync(path.join(LIST_DIR, 'allowlist.json'), 'utf-8');
         allowlist = new Map(JSON.parse(dados));
         console.log('Allowlist carregada do arquivo.');
         logConfig('Allowlist carregada do arquivo.');
@@ -222,7 +227,7 @@ function analisaTrafego(ip, scheme, metodo, pais, path, bytes, porta, host) {
 
 function logAcao(resultado) {
     const logEntry = `${new Date().toISOString()} - IP: ${resultado.ip}, Status: ${resultado.status}, Severidade: ${resultado.severidade}\n`;
-    fs.appendFileSync('firewall_log.txt', logEntry);
+    fs.appendFileSync(path.join(LOG_DIR, 'firewall_log.txt'), logEntry);
 }
 
 function perguntas() {
@@ -257,7 +262,7 @@ function perguntas() {
 }
 
 function processarTrafego() {
-    fs.createReadStream('test-dataset.csv')
+    fs.createReadStream(path.join(__dirname, 'test-dataset.csv'))
         .pipe(csv())
         .on('data', (row) => {
             const ipOrigem = row.ClientIP;
@@ -271,7 +276,7 @@ function processarTrafego() {
             analisaTrafego(ipOrigem, scheme, metodo, pais, path, bytes, porta, host);
         })
         .on('end', () => {
-            fs.writeFileSync('analise_trafego.json', JSON.stringify(resultados, null, 2));
+            fs.writeFileSync(path.join(RESULT_DIR, 'analise_trafego.json'), JSON.stringify(resultados, null, 2));
             console.log('Análise de tráfego concluída. Resultados salvos no arquivo analise_trafego.json.');
             logConfig('Análise de tráfego concluída. Resultados salvos no arquivo analise_trafego.json.');
             perguntarAdicionarIP();

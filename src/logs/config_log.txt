@@ -1,0 +1,300 @@
+2024-09-13T16:17:28.233Z - Iniciando o firewall...
+2024-09-13T16:17:28.238Z - Arquivo de allowlist não encontrado. Criando uma nova allowlist.
+2024-09-13T16:17:28.239Z - Arquivo de blocklist não encontrado. Criando uma nova blocklist.
+2024-09-13T16:17:28.240Z - Limpeza periódica da blocklist iniciada.
+2024-09-13T16:17:31.920Z - Bloqueio de requisições HTTP ativado.
+2024-09-13T16:17:32.542Z - Bloqueio de métodos suspeitos ativado.
+2024-09-13T16:17:33.150Z - Bloqueio de geolocalização suspeita ativado.
+2024-09-13T16:17:33.545Z - IP 92.126.154.181 adicionado à blocklist temporária.
+2024-09-13T16:17:33.546Z - Possível ataque DDoS detectado do IP 92.126.154.181. IP adicionado à blocklist.
+2024-09-13T16:17:33.701Z - IP 171.76.104.123 adicionado à blocklist temporária.
+2024-09-13T16:17:33.701Z - Possível ataque DDoS detectado do IP 171.76.104.123. IP adicionado à blocklist.
+2024-09-13T16:17:33.771Z - IP 222.2.129.147 adicionado à blocklist temporária.
+2024-09-13T16:17:33.772Z - Possível ataque DDoS detectado do IP 222.2.129.147. IP adicionado à blocklist.
+2024-09-13T16:17:34.132Z - IP 222.30.33.183 adicionado à blocklist temporária.
+2024-09-13T16:17:34.132Z - Possível ataque DDoS detectado do IP 222.30.33.183. IP adicionado à blocklist.
+2024-09-13T16:17:34.172Z - IP 13.235.167.220 adicionado à blocklist temporária.
+2024-09-13T16:17:34.172Z - Possível ataque DDoS detectado do IP 13.235.167.220. IP adicionado à blocklist.
+2024-09-13T16:17:34.188Z - IP 10.228.210.2 adicionado à blocklist temporária.
+2024-09-13T16:17:34.188Z - Possível ataque DDoS detectado do IP 10.228.210.2. IP adicionado à blocklist.
+2024-09-13T16:17:34.198Z - IP 193.206.235.29 adicionado à blocklist temporária.
+2024-09-13T16:17:34.199Z - Possível ataque DDoS detectado do IP 193.206.235.29. IP adicionado à blocklist.
+2024-09-13T16:17:34.253Z - IP 26.158.117.152 adicionado à blocklist temporária.
+2024-09-13T16:17:34.253Z - Possível ataque DDoS detectado do IP 26.158.117.152. IP adicionado à blocklist.
+2024-09-13T16:17:34.282Z - IP 62.233.82.185 adicionado à blocklist temporária.
+2024-09-13T16:17:34.283Z - Possível ataque DDoS detectado do IP 62.233.82.185. IP adicionado à blocklist.
+2024-09-13T16:17:34.300Z - IP 172.73.227.140 adicionado à blocklist temporária.
+2024-09-13T16:17:34.303Z - Possível ataque DDoS detectado do IP 172.73.227.140. IP adicionado à blocklist.
+2024-09-13T16:17:34.374Z - IP 192.88.206.163 adicionado à blocklist temporária.
+2024-09-13T16:17:34.375Z - Possível ataque DDoS detectado do IP 192.88.206.163. IP adicionado à blocklist.
+2024-09-13T16:17:34.393Z - IP 165.107.232.96 adicionado à blocklist temporária.
+2024-09-13T16:17:34.393Z - Possível ataque DDoS detectado do IP 165.107.232.96. IP adicionado à blocklist.
+2024-09-13T16:17:34.440Z - IP 159.147.102.107 adicionado à blocklist temporária.
+2024-09-13T16:17:34.440Z - Possível ataque DDoS detectado do IP 159.147.102.107. IP adicionado à blocklist.
+2024-09-13T16:17:34.447Z - IP 41.248.255.237 adicionado à blocklist temporária.
+2024-09-13T16:17:34.448Z - Possível ataque DDoS detectado do IP 41.248.255.237. IP adicionado à blocklist.
+2024-09-13T16:17:34.455Z - IP 159.197.110.50 adicionado à blocklist temporária.
+2024-09-13T16:17:34.456Z - Possível ataque DDoS detectado do IP 159.197.110.50. IP adicionado à blocklist.
+2024-09-13T16:17:34.511Z - IP 24.203.45.79 adicionado à blocklist temporária.
+2024-09-13T16:17:34.511Z - Possível ataque DDoS detectado do IP 24.203.45.79. IP adicionado à blocklist.
+2024-09-13T16:17:34.536Z - IP 53.14.209.93 adicionado à blocklist temporária.
+2024-09-13T16:17:34.536Z - Possível ataque DDoS detectado do IP 53.14.209.93. IP adicionado à blocklist.
+2024-09-13T16:17:34.778Z - IP 21.166.16.150 adicionado à blocklist temporária.
+2024-09-13T16:17:34.778Z - Possível ataque DDoS detectado do IP 21.166.16.150. IP adicionado à blocklist.
+2024-09-13T16:17:34.783Z - IP 57.112.34.158 adicionado à blocklist temporária.
+2024-09-13T16:17:34.783Z - Possível ataque DDoS detectado do IP 57.112.34.158. IP adicionado à blocklist.
+2024-09-13T16:17:34.786Z - IP 8.84.119.17 adicionado à blocklist temporária.
+2024-09-13T16:17:34.787Z - Possível ataque DDoS detectado do IP 8.84.119.17. IP adicionado à blocklist.
+2024-09-13T16:17:34.799Z - IP 132.107.158.218 adicionado à blocklist temporária.
+2024-09-13T16:17:34.799Z - Possível ataque DDoS detectado do IP 132.107.158.218. IP adicionado à blocklist.
+2024-09-13T16:17:34.814Z - IP 158.240.206.108 adicionado à blocklist temporária.
+2024-09-13T16:17:34.814Z - Possível ataque DDoS detectado do IP 158.240.206.108. IP adicionado à blocklist.
+2024-09-13T16:17:34.821Z - IP 195.171.155.166 adicionado à blocklist temporária.
+2024-09-13T16:17:34.821Z - Possível ataque DDoS detectado do IP 195.171.155.166. IP adicionado à blocklist.
+2024-09-13T16:17:34.823Z - IP 208.150.99.181 adicionado à blocklist temporária.
+2024-09-13T16:17:34.823Z - Possível ataque DDoS detectado do IP 208.150.99.181. IP adicionado à blocklist.
+2024-09-13T16:17:34.826Z - IP 23.159.246.188 adicionado à blocklist temporária.
+2024-09-13T16:17:34.826Z - Possível ataque DDoS detectado do IP 23.159.246.188. IP adicionado à blocklist.
+2024-09-13T16:17:34.857Z - IP 129.53.13.62 adicionado à blocklist temporária.
+2024-09-13T16:17:34.857Z - Possível ataque DDoS detectado do IP 129.53.13.62. IP adicionado à blocklist.
+2024-09-13T16:17:34.905Z - IP 189.111.236.123 adicionado à blocklist temporária.
+2024-09-13T16:17:34.906Z - Possível ataque DDoS detectado do IP 189.111.236.123. IP adicionado à blocklist.
+2024-09-13T16:17:34.908Z - IP 7.197.100.227 adicionado à blocklist temporária.
+2024-09-13T16:17:34.909Z - Possível ataque DDoS detectado do IP 7.197.100.227. IP adicionado à blocklist.
+2024-09-13T16:17:34.947Z - IP 217.119.19.158 adicionado à blocklist temporária.
+2024-09-13T16:17:34.947Z - Possível ataque DDoS detectado do IP 217.119.19.158. IP adicionado à blocklist.
+2024-09-13T16:17:34.979Z - IP 57.59.211.222 adicionado à blocklist temporária.
+2024-09-13T16:17:34.980Z - Possível ataque DDoS detectado do IP 57.59.211.222. IP adicionado à blocklist.
+2024-09-13T16:17:34.992Z - IP 202.206.239.71 adicionado à blocklist temporária.
+2024-09-13T16:17:34.993Z - Possível ataque DDoS detectado do IP 202.206.239.71. IP adicionado à blocklist.
+2024-09-13T16:17:35.010Z - IP 189.69.74.46 adicionado à blocklist temporária.
+2024-09-13T16:17:35.011Z - Possível ataque DDoS detectado do IP 189.69.74.46. IP adicionado à blocklist.
+2024-09-13T16:17:35.014Z - IP 35.96.80.127 adicionado à blocklist temporária.
+2024-09-13T16:17:35.015Z - Possível ataque DDoS detectado do IP 35.96.80.127. IP adicionado à blocklist.
+2024-09-13T16:17:35.063Z - IP 133.157.216.48 adicionado à blocklist temporária.
+2024-09-13T16:17:35.064Z - Possível ataque DDoS detectado do IP 133.157.216.48. IP adicionado à blocklist.
+2024-09-13T16:17:35.093Z - IP 143.4.1.39 adicionado à blocklist temporária.
+2024-09-13T16:17:35.093Z - Possível ataque DDoS detectado do IP 143.4.1.39. IP adicionado à blocklist.
+2024-09-13T16:17:35.106Z - IP 37.167.69.122 adicionado à blocklist temporária.
+2024-09-13T16:17:35.107Z - Possível ataque DDoS detectado do IP 37.167.69.122. IP adicionado à blocklist.
+2024-09-13T16:17:35.139Z - IP 105.142.96.5 adicionado à blocklist temporária.
+2024-09-13T16:17:35.140Z - Possível ataque DDoS detectado do IP 105.142.96.5. IP adicionado à blocklist.
+2024-09-13T16:17:35.142Z - IP 19.143.51.102 adicionado à blocklist temporária.
+2024-09-13T16:17:35.142Z - Possível ataque DDoS detectado do IP 19.143.51.102. IP adicionado à blocklist.
+2024-09-13T16:17:35.150Z - IP 98.197.20.168 adicionado à blocklist temporária.
+2024-09-13T16:17:35.151Z - Possível ataque DDoS detectado do IP 98.197.20.168. IP adicionado à blocklist.
+2024-09-13T16:17:35.153Z - IP 187.58.154.169 adicionado à blocklist temporária.
+2024-09-13T16:17:35.153Z - Possível ataque DDoS detectado do IP 187.58.154.169. IP adicionado à blocklist.
+2024-09-13T16:17:35.204Z - IP 181.37.150.112 adicionado à blocklist temporária.
+2024-09-13T16:17:35.204Z - Possível ataque DDoS detectado do IP 181.37.150.112. IP adicionado à blocklist.
+2024-09-13T16:17:35.270Z - IP 79.204.155.139 adicionado à blocklist temporária.
+2024-09-13T16:17:35.270Z - Possível ataque DDoS detectado do IP 79.204.155.139. IP adicionado à blocklist.
+2024-09-13T16:17:35.285Z - IP 196.9.231.148 adicionado à blocklist temporária.
+2024-09-13T16:17:35.285Z - Possível ataque DDoS detectado do IP 196.9.231.148. IP adicionado à blocklist.
+2024-09-13T16:17:35.294Z - IP 143.192.219.104 adicionado à blocklist temporária.
+2024-09-13T16:17:35.294Z - Possível ataque DDoS detectado do IP 143.192.219.104. IP adicionado à blocklist.
+2024-09-13T16:17:35.304Z - IP 146.239.91.195 adicionado à blocklist temporária.
+2024-09-13T16:17:35.305Z - Possível ataque DDoS detectado do IP 146.239.91.195. IP adicionado à blocklist.
+2024-09-13T16:17:35.314Z - IP 147.41.40.18 adicionado à blocklist temporária.
+2024-09-13T16:17:35.315Z - Possível ataque DDoS detectado do IP 147.41.40.18. IP adicionado à blocklist.
+2024-09-13T16:17:35.327Z - IP 88.40.53.243 adicionado à blocklist temporária.
+2024-09-13T16:17:35.328Z - Possível ataque DDoS detectado do IP 88.40.53.243. IP adicionado à blocklist.
+2024-09-13T16:17:35.334Z - IP 128.3.125.57 adicionado à blocklist temporária.
+2024-09-13T16:17:35.335Z - Possível ataque DDoS detectado do IP 128.3.125.57. IP adicionado à blocklist.
+2024-09-13T16:17:35.339Z - IP 55.118.20.119 adicionado à blocklist temporária.
+2024-09-13T16:17:35.339Z - Possível ataque DDoS detectado do IP 55.118.20.119. IP adicionado à blocklist.
+2024-09-13T16:17:35.366Z - IP 11.148.137.128 adicionado à blocklist temporária.
+2024-09-13T16:17:35.367Z - Possível ataque DDoS detectado do IP 11.148.137.128. IP adicionado à blocklist.
+2024-09-13T16:17:35.375Z - IP 171.40.165.112 adicionado à blocklist temporária.
+2024-09-13T16:17:35.376Z - Possível ataque DDoS detectado do IP 171.40.165.112. IP adicionado à blocklist.
+2024-09-13T16:17:35.379Z - IP 53.254.234.52 adicionado à blocklist temporária.
+2024-09-13T16:17:35.379Z - Possível ataque DDoS detectado do IP 53.254.234.52. IP adicionado à blocklist.
+2024-09-13T16:17:35.399Z - IP 56.172.84.231 adicionado à blocklist temporária.
+2024-09-13T16:17:35.399Z - Possível ataque DDoS detectado do IP 56.172.84.231. IP adicionado à blocklist.
+2024-09-13T16:17:35.423Z - IP 20.186.223.8 adicionado à blocklist temporária.
+2024-09-13T16:17:35.423Z - Possível ataque DDoS detectado do IP 20.186.223.8. IP adicionado à blocklist.
+2024-09-13T16:17:35.443Z - IP 159.168.200.38 adicionado à blocklist temporária.
+2024-09-13T16:17:35.443Z - Possível ataque DDoS detectado do IP 159.168.200.38. IP adicionado à blocklist.
+2024-09-13T16:17:35.450Z - IP 117.200.193.5 adicionado à blocklist temporária.
+2024-09-13T16:17:35.450Z - Possível ataque DDoS detectado do IP 117.200.193.5. IP adicionado à blocklist.
+2024-09-13T16:17:35.463Z - IP 116.254.36.200 adicionado à blocklist temporária.
+2024-09-13T16:17:35.463Z - Possível ataque DDoS detectado do IP 116.254.36.200. IP adicionado à blocklist.
+2024-09-13T16:17:35.473Z - IP 134.226.226.202 adicionado à blocklist temporária.
+2024-09-13T16:17:35.473Z - Possível ataque DDoS detectado do IP 134.226.226.202. IP adicionado à blocklist.
+2024-09-13T16:17:35.476Z - IP 7.113.8.157 adicionado à blocklist temporária.
+2024-09-13T16:17:35.476Z - Possível ataque DDoS detectado do IP 7.113.8.157. IP adicionado à blocklist.
+2024-09-13T16:17:35.488Z - IP 96.152.27.237 adicionado à blocklist temporária.
+2024-09-13T16:17:35.489Z - Possível ataque DDoS detectado do IP 96.152.27.237. IP adicionado à blocklist.
+2024-09-13T16:17:35.492Z - IP 66.170.211.253 adicionado à blocklist temporária.
+2024-09-13T16:17:35.493Z - Possível ataque DDoS detectado do IP 66.170.211.253. IP adicionado à blocklist.
+2024-09-13T16:17:35.499Z - IP 157.226.241.234 adicionado à blocklist temporária.
+2024-09-13T16:17:35.500Z - Possível ataque DDoS detectado do IP 157.226.241.234. IP adicionado à blocklist.
+2024-09-13T16:17:35.511Z - IP 14.227.188.198 adicionado à blocklist temporária.
+2024-09-13T16:17:35.511Z - Possível ataque DDoS detectado do IP 14.227.188.198. IP adicionado à blocklist.
+2024-09-13T16:17:35.533Z - IP 219.174.86.216 adicionado à blocklist temporária.
+2024-09-13T16:17:35.533Z - Possível ataque DDoS detectado do IP 219.174.86.216. IP adicionado à blocklist.
+2024-09-13T16:17:35.540Z - IP 167.19.186.112 adicionado à blocklist temporária.
+2024-09-13T16:17:35.540Z - Possível ataque DDoS detectado do IP 167.19.186.112. IP adicionado à blocklist.
+2024-09-13T16:17:35.549Z - IP 125.227.246.131 adicionado à blocklist temporária.
+2024-09-13T16:17:35.549Z - Possível ataque DDoS detectado do IP 125.227.246.131. IP adicionado à blocklist.
+2024-09-13T16:17:35.558Z - IP 154.244.130.33 adicionado à blocklist temporária.
+2024-09-13T16:17:35.558Z - Possível ataque DDoS detectado do IP 154.244.130.33. IP adicionado à blocklist.
+2024-09-13T16:17:35.560Z - IP 26.249.70.42 adicionado à blocklist temporária.
+2024-09-13T16:17:35.560Z - Possível ataque DDoS detectado do IP 26.249.70.42. IP adicionado à blocklist.
+2024-09-13T16:17:35.562Z - IP 185.24.37.122 adicionado à blocklist temporária.
+2024-09-13T16:17:35.562Z - Possível ataque DDoS detectado do IP 185.24.37.122. IP adicionado à blocklist.
+2024-09-13T16:17:35.627Z - IP 128.103.139.186 adicionado à blocklist temporária.
+2024-09-13T16:17:35.627Z - Possível ataque DDoS detectado do IP 128.103.139.186. IP adicionado à blocklist.
+2024-09-13T16:17:35.655Z - IP 218.83.247.217 adicionado à blocklist temporária.
+2024-09-13T16:17:35.655Z - Possível ataque DDoS detectado do IP 218.83.247.217. IP adicionado à blocklist.
+2024-09-13T16:17:35.657Z - IP 193.134.220.249 adicionado à blocklist temporária.
+2024-09-13T16:17:35.657Z - Possível ataque DDoS detectado do IP 193.134.220.249. IP adicionado à blocklist.
+2024-09-13T16:17:35.663Z - IP 207.250.194.83 adicionado à blocklist temporária.
+2024-09-13T16:17:35.663Z - Possível ataque DDoS detectado do IP 207.250.194.83. IP adicionado à blocklist.
+2024-09-13T16:17:35.666Z - IP 208.56.210.58 adicionado à blocklist temporária.
+2024-09-13T16:17:35.666Z - Possível ataque DDoS detectado do IP 208.56.210.58. IP adicionado à blocklist.
+2024-09-13T16:17:35.696Z - IP 222.181.221.87 adicionado à blocklist temporária.
+2024-09-13T16:17:35.697Z - Possível ataque DDoS detectado do IP 222.181.221.87. IP adicionado à blocklist.
+2024-09-13T16:17:35.726Z - IP 78.214.250.139 adicionado à blocklist temporária.
+2024-09-13T16:17:35.727Z - Possível ataque DDoS detectado do IP 78.214.250.139. IP adicionado à blocklist.
+2024-09-13T16:17:35.733Z - IP 221.112.50.103 adicionado à blocklist temporária.
+2024-09-13T16:17:35.733Z - Possível ataque DDoS detectado do IP 221.112.50.103. IP adicionado à blocklist.
+2024-09-13T16:17:35.738Z - IP 215.72.87.11 adicionado à blocklist temporária.
+2024-09-13T16:17:35.739Z - Possível ataque DDoS detectado do IP 215.72.87.11. IP adicionado à blocklist.
+2024-09-13T16:17:35.790Z - IP 129.250.178.34 adicionado à blocklist temporária.
+2024-09-13T16:17:35.790Z - Possível ataque DDoS detectado do IP 129.250.178.34. IP adicionado à blocklist.
+2024-09-13T16:17:35.819Z - IP 108.211.228.176 adicionado à blocklist temporária.
+2024-09-13T16:17:35.819Z - Possível ataque DDoS detectado do IP 108.211.228.176. IP adicionado à blocklist.
+2024-09-13T16:17:35.828Z - IP 209.158.28.49 adicionado à blocklist temporária.
+2024-09-13T16:17:35.828Z - Possível ataque DDoS detectado do IP 209.158.28.49. IP adicionado à blocklist.
+2024-09-13T16:17:35.861Z - IP 113.19.13.53 adicionado à blocklist temporária.
+2024-09-13T16:17:35.862Z - Possível ataque DDoS detectado do IP 113.19.13.53. IP adicionado à blocklist.
+2024-09-13T16:17:35.899Z - IP 113.50.114.50 adicionado à blocklist temporária.
+2024-09-13T16:17:35.899Z - Possível ataque DDoS detectado do IP 113.50.114.50. IP adicionado à blocklist.
+2024-09-13T16:17:35.909Z - IP 32.168.224.172 adicionado à blocklist temporária.
+2024-09-13T16:17:35.909Z - Possível ataque DDoS detectado do IP 32.168.224.172. IP adicionado à blocklist.
+2024-09-13T16:17:35.914Z - IP 144.43.7.43 adicionado à blocklist temporária.
+2024-09-13T16:17:35.914Z - Possível ataque DDoS detectado do IP 144.43.7.43. IP adicionado à blocklist.
+2024-09-13T16:17:35.932Z - IP 212.195.103.225 adicionado à blocklist temporária.
+2024-09-13T16:17:35.932Z - Possível ataque DDoS detectado do IP 212.195.103.225. IP adicionado à blocklist.
+2024-09-13T16:17:35.977Z - IP 197.186.169.178 adicionado à blocklist temporária.
+2024-09-13T16:17:35.978Z - Possível ataque DDoS detectado do IP 197.186.169.178. IP adicionado à blocklist.
+2024-09-13T16:17:35.995Z - IP 60.237.185.56 adicionado à blocklist temporária.
+2024-09-13T16:17:35.995Z - Possível ataque DDoS detectado do IP 60.237.185.56. IP adicionado à blocklist.
+2024-09-13T16:17:36.024Z - IP 29.134.230.139 adicionado à blocklist temporária.
+2024-09-13T16:17:36.025Z - Possível ataque DDoS detectado do IP 29.134.230.139. IP adicionado à blocklist.
+2024-09-13T16:17:36.049Z - IP 179.192.152.151 adicionado à blocklist temporária.
+2024-09-13T16:17:36.049Z - Possível ataque DDoS detectado do IP 179.192.152.151. IP adicionado à blocklist.
+2024-09-13T16:17:36.059Z - IP 88.190.191.62 adicionado à blocklist temporária.
+2024-09-13T16:17:36.060Z - Possível ataque DDoS detectado do IP 88.190.191.62. IP adicionado à blocklist.
+2024-09-13T16:17:36.104Z - IP 5.220.16.161 adicionado à blocklist temporária.
+2024-09-13T16:17:36.104Z - Possível ataque DDoS detectado do IP 5.220.16.161. IP adicionado à blocklist.
+2024-09-13T16:17:36.168Z - IP 77.221.81.254 adicionado à blocklist temporária.
+2024-09-13T16:17:36.169Z - Possível ataque DDoS detectado do IP 77.221.81.254. IP adicionado à blocklist.
+2024-09-13T16:17:36.189Z - IP 143.223.188.210 adicionado à blocklist temporária.
+2024-09-13T16:17:36.190Z - Possível ataque DDoS detectado do IP 143.223.188.210. IP adicionado à blocklist.
+2024-09-13T16:17:36.198Z - IP 154.194.118.163 adicionado à blocklist temporária.
+2024-09-13T16:17:36.198Z - Possível ataque DDoS detectado do IP 154.194.118.163. IP adicionado à blocklist.
+2024-09-13T16:17:36.280Z - IP 192.19.249.147 adicionado à blocklist temporária.
+2024-09-13T16:17:36.281Z - Possível ataque DDoS detectado do IP 192.19.249.147. IP adicionado à blocklist.
+2024-09-13T16:17:36.304Z - IP 138.186.185.240 adicionado à blocklist temporária.
+2024-09-13T16:17:36.305Z - Possível ataque DDoS detectado do IP 138.186.185.240. IP adicionado à blocklist.
+2024-09-13T16:17:36.327Z - IP 131.157.141.74 adicionado à blocklist temporária.
+2024-09-13T16:17:36.327Z - Possível ataque DDoS detectado do IP 131.157.141.74. IP adicionado à blocklist.
+2024-09-13T16:17:36.340Z - IP 135.161.89.192 adicionado à blocklist temporária.
+2024-09-13T16:17:36.341Z - Possível ataque DDoS detectado do IP 135.161.89.192. IP adicionado à blocklist.
+2024-09-13T16:17:36.382Z - IP 14.219.202.71 adicionado à blocklist temporária.
+2024-09-13T16:17:36.383Z - Possível ataque DDoS detectado do IP 14.219.202.71. IP adicionado à blocklist.
+2024-09-13T16:17:36.483Z - IP 212.38.130.214 adicionado à blocklist temporária.
+2024-09-13T16:17:36.484Z - Possível ataque DDoS detectado do IP 212.38.130.214. IP adicionado à blocklist.
+2024-09-13T16:17:36.492Z - IP 95.130.38.51 adicionado à blocklist temporária.
+2024-09-13T16:17:36.493Z - Possível ataque DDoS detectado do IP 95.130.38.51. IP adicionado à blocklist.
+2024-09-13T16:17:36.505Z - IP 93.224.123.232 adicionado à blocklist temporária.
+2024-09-13T16:17:36.506Z - Possível ataque DDoS detectado do IP 93.224.123.232. IP adicionado à blocklist.
+2024-09-13T16:17:36.509Z - IP 187.109.49.123 adicionado à blocklist temporária.
+2024-09-13T16:17:36.509Z - Possível ataque DDoS detectado do IP 187.109.49.123. IP adicionado à blocklist.
+2024-09-13T16:17:36.515Z - IP 44.234.138.75 adicionado à blocklist temporária.
+2024-09-13T16:17:36.515Z - Possível ataque DDoS detectado do IP 44.234.138.75. IP adicionado à blocklist.
+2024-09-13T16:17:36.521Z - IP 86.248.156.68 adicionado à blocklist temporária.
+2024-09-13T16:17:36.522Z - Possível ataque DDoS detectado do IP 86.248.156.68. IP adicionado à blocklist.
+2024-09-13T16:17:36.531Z - IP 181.213.103.91 adicionado à blocklist temporária.
+2024-09-13T16:17:36.531Z - Possível ataque DDoS detectado do IP 181.213.103.91. IP adicionado à blocklist.
+2024-09-13T16:17:36.539Z - IP 38.90.38.169 adicionado à blocklist temporária.
+2024-09-13T16:17:36.539Z - Possível ataque DDoS detectado do IP 38.90.38.169. IP adicionado à blocklist.
+2024-09-13T16:17:36.543Z - IP 111.55.169.136 adicionado à blocklist temporária.
+2024-09-13T16:17:36.544Z - Possível ataque DDoS detectado do IP 111.55.169.136. IP adicionado à blocklist.
+2024-09-13T16:17:36.546Z - IP 206.242.241.175 adicionado à blocklist temporária.
+2024-09-13T16:17:36.546Z - Possível ataque DDoS detectado do IP 206.242.241.175. IP adicionado à blocklist.
+2024-09-13T16:17:36.549Z - IP 141.148.116.60 adicionado à blocklist temporária.
+2024-09-13T16:17:36.549Z - Possível ataque DDoS detectado do IP 141.148.116.60. IP adicionado à blocklist.
+2024-09-13T16:17:36.553Z - IP 190.212.52.36 adicionado à blocklist temporária.
+2024-09-13T16:17:36.553Z - Possível ataque DDoS detectado do IP 190.212.52.36. IP adicionado à blocklist.
+2024-09-13T16:17:36.562Z - IP 8.22.220.208 adicionado à blocklist temporária.
+2024-09-13T16:17:36.562Z - Possível ataque DDoS detectado do IP 8.22.220.208. IP adicionado à blocklist.
+2024-09-13T16:17:36.565Z - IP 110.104.236.144 adicionado à blocklist temporária.
+2024-09-13T16:17:36.566Z - Possível ataque DDoS detectado do IP 110.104.236.144. IP adicionado à blocklist.
+2024-09-13T16:17:36.585Z - IP 185.60.226.17 adicionado à blocklist temporária.
+2024-09-13T16:17:36.586Z - Possível ataque DDoS detectado do IP 185.60.226.17. IP adicionado à blocklist.
+2024-09-13T16:17:36.587Z - IP 172.26.56.110 adicionado à blocklist temporária.
+2024-09-13T16:17:36.588Z - Possível ataque DDoS detectado do IP 172.26.56.110. IP adicionado à blocklist.
+2024-09-13T16:17:36.591Z - IP 215.173.246.58 adicionado à blocklist temporária.
+2024-09-13T16:17:36.591Z - Possível ataque DDoS detectado do IP 215.173.246.58. IP adicionado à blocklist.
+2024-09-13T16:17:36.602Z - IP 103.132.1.94 adicionado à blocklist temporária.
+2024-09-13T16:17:36.603Z - Possível ataque DDoS detectado do IP 103.132.1.94. IP adicionado à blocklist.
+2024-09-13T16:17:36.611Z - IP 69.78.8.254 adicionado à blocklist temporária.
+2024-09-13T16:17:36.611Z - Possível ataque DDoS detectado do IP 69.78.8.254. IP adicionado à blocklist.
+2024-09-13T16:17:36.615Z - IP 89.236.176.154 adicionado à blocklist temporária.
+2024-09-13T16:17:36.615Z - Possível ataque DDoS detectado do IP 89.236.176.154. IP adicionado à blocklist.
+2024-09-13T16:17:36.645Z - IP 123.147.31.210 adicionado à blocklist temporária.
+2024-09-13T16:17:36.645Z - Possível ataque DDoS detectado do IP 123.147.31.210. IP adicionado à blocklist.
+2024-09-13T16:17:36.653Z - IP 130.119.37.169 adicionado à blocklist temporária.
+2024-09-13T16:17:36.653Z - Possível ataque DDoS detectado do IP 130.119.37.169. IP adicionado à blocklist.
+2024-09-13T16:17:36.656Z - IP 57.175.122.246 adicionado à blocklist temporária.
+2024-09-13T16:17:36.656Z - Possível ataque DDoS detectado do IP 57.175.122.246. IP adicionado à blocklist.
+2024-09-13T16:17:36.667Z - IP 28.75.189.25 adicionado à blocklist temporária.
+2024-09-13T16:17:36.669Z - Possível ataque DDoS detectado do IP 28.75.189.25. IP adicionado à blocklist.
+2024-09-13T16:17:36.679Z - IP 118.20.187.50 adicionado à blocklist temporária.
+2024-09-13T16:17:36.680Z - Possível ataque DDoS detectado do IP 118.20.187.50. IP adicionado à blocklist.
+2024-09-13T16:17:36.686Z - IP 89.240.61.108 adicionado à blocklist temporária.
+2024-09-13T16:17:36.686Z - Possível ataque DDoS detectado do IP 89.240.61.108. IP adicionado à blocklist.
+2024-09-13T16:17:36.688Z - IP 178.176.31.6 adicionado à blocklist temporária.
+2024-09-13T16:17:36.688Z - Possível ataque DDoS detectado do IP 178.176.31.6. IP adicionado à blocklist.
+2024-09-13T16:17:36.699Z - IP 25.80.51.61 adicionado à blocklist temporária.
+2024-09-13T16:17:36.700Z - Possível ataque DDoS detectado do IP 25.80.51.61. IP adicionado à blocklist.
+2024-09-13T16:17:36.725Z - IP 139.88.106.5 adicionado à blocklist temporária.
+2024-09-13T16:17:36.725Z - Possível ataque DDoS detectado do IP 139.88.106.5. IP adicionado à blocklist.
+2024-09-13T16:17:36.731Z - IP 83.209.73.10 adicionado à blocklist temporária.
+2024-09-13T16:17:36.731Z - Possível ataque DDoS detectado do IP 83.209.73.10. IP adicionado à blocklist.
+2024-09-13T16:17:36.744Z - IP 206.228.108.158 adicionado à blocklist temporária.
+2024-09-13T16:17:36.745Z - Possível ataque DDoS detectado do IP 206.228.108.158. IP adicionado à blocklist.
+2024-09-13T16:17:36.748Z - IP 90.178.50.209 adicionado à blocklist temporária.
+2024-09-13T16:17:36.748Z - Possível ataque DDoS detectado do IP 90.178.50.209. IP adicionado à blocklist.
+2024-09-13T16:17:36.841Z - IP 109.204.128.232 adicionado à blocklist temporária.
+2024-09-13T16:17:36.841Z - Possível ataque DDoS detectado do IP 109.204.128.232. IP adicionado à blocklist.
+2024-09-13T16:17:36.982Z - IP 25.242.208.139 adicionado à blocklist temporária.
+2024-09-13T16:17:36.983Z - Possível ataque DDoS detectado do IP 25.242.208.139. IP adicionado à blocklist.
+2024-09-13T16:17:36.994Z - IP 217.65.127.25 adicionado à blocklist temporária.
+2024-09-13T16:17:36.994Z - Possível ataque DDoS detectado do IP 217.65.127.25. IP adicionado à blocklist.
+2024-09-13T16:17:36.999Z - IP 220.159.173.67 adicionado à blocklist temporária.
+2024-09-13T16:17:36.999Z - Possível ataque DDoS detectado do IP 220.159.173.67. IP adicionado à blocklist.
+2024-09-13T16:17:37.024Z - IP 178.4.201.41 adicionado à blocklist temporária.
+2024-09-13T16:17:37.025Z - Possível ataque DDoS detectado do IP 178.4.201.41. IP adicionado à blocklist.
+2024-09-13T16:17:37.031Z - IP 203.87.92.123 adicionado à blocklist temporária.
+2024-09-13T16:17:37.031Z - Possível ataque DDoS detectado do IP 203.87.92.123. IP adicionado à blocklist.
+2024-09-13T16:17:37.062Z - IP 159.208.189.131 adicionado à blocklist temporária.
+2024-09-13T16:17:37.062Z - Possível ataque DDoS detectado do IP 159.208.189.131. IP adicionado à blocklist.
+2024-09-13T16:17:37.598Z - IP 179.11.123.206 adicionado à blocklist temporária.
+2024-09-13T16:17:37.599Z - Possível ataque DDoS detectado do IP 179.11.123.206. IP adicionado à blocklist.
+2024-09-13T16:17:37.604Z - IP 219.65.150.78 adicionado à blocklist temporária.
+2024-09-13T16:17:37.605Z - Possível ataque DDoS detectado do IP 219.65.150.78. IP adicionado à blocklist.
+2024-09-13T16:17:37.622Z - IP 6.184.51.168 adicionado à blocklist temporária.
+2024-09-13T16:17:37.622Z - Possível ataque DDoS detectado do IP 6.184.51.168. IP adicionado à blocklist.
+2024-09-13T16:17:41.586Z - IP 53.153.77.110 adicionado à blocklist temporária.
+2024-09-13T16:17:41.586Z - Possível ataque DDoS detectado do IP 53.153.77.110. IP adicionado à blocklist.
+2024-09-13T16:17:41.600Z - IP 200.0.128.177 adicionado à blocklist temporária.
+2024-09-13T16:17:41.601Z - Possível ataque DDoS detectado do IP 200.0.128.177. IP adicionado à blocklist.
+2024-09-13T16:17:41.658Z - IP 145.176.150.30 adicionado à blocklist temporária.
+2024-09-13T16:17:41.658Z - Possível ataque DDoS detectado do IP 145.176.150.30. IP adicionado à blocklist.
+2024-09-13T16:17:43.745Z - Análise de tráfego concluída. Resultados salvos no arquivo analise_trafego.json.
+2024-09-13T16:17:55.612Z - Análise finalizada. Programa encerrado.
+2024-09-13T16:17:55.613Z - Limpeza periódica da blocklist interrompida.
