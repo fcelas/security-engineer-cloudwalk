@@ -79,6 +79,8 @@ Após iniciar o programa, você será apresentado a um menu principal com as seg
 4. Ver resultados e listas
 5. Sair
 
+Ao iniciar a análise pela primeira vez, alguns IPs serão automaticamente adicionados à blocklist por apresentarem comportamento semelhante a um DDoS.
+
 ### Fluxo de Operação
 
 1. **Configurar Regras**: Use a opção 2 do menu principal para configurar as regras de bloqueio antes de iniciar a análise.
