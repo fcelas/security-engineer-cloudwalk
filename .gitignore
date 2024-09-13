@@ -4,14 +4,5 @@
 #Ignorar script do antigo menu
 **/menu.js
 
-# Ignorar arquivos de resultado
-src/resultados/*.json
-
-# Ignorar arquivos de log
-src/logs/*.txt
-
-# Ignorar arquivos de listas
-src/listas/*.json
-
 # Ignorar módulos Node.js
 node_modules/
