@@ -279,9 +279,11 @@ function processarTrafego() {
             fs.writeFileSync(path.join(RESULT_DIR, 'analise_trafego.json'), JSON.stringify(resultados, null, 2));
             console.log('Análise de tráfego concluída. Resultados salvos no arquivo analise_trafego.json.');
             logConfig('Análise de tráfego concluída. Resultados salvos no arquivo analise_trafego.json.');
-            perguntarAdicionarIP();
+            
+            exibirMenuPrincipal();
         });
 }
+
 
 let intervaloLimpeza;
 
@@ -353,8 +355,184 @@ function perguntarRemoverIPAllow() {
     });
 }
 
+//Menu foi feito com auxílio do ChatGPT
+
+function exibirMenuPrincipal() {
+    console.log('\n--- Menu Principal ---');
+    console.log('1. Iniciar análise de tráfego');
+    console.log('2. Configurar regras de bloqueio');
+    console.log('3. Gerenciar listas (blocklist/allowlist)');
+    console.log('4. Ver resultados e listas');
+    console.log('5. Sair');
+    rl.question('Escolha uma opção: ', (opcao) => {
+        switch (opcao) {
+            case '1':
+                processarTrafego();
+                break;
+            case '2':
+                menuConfigurarRegras();
+                break;
+            case '3':
+                menuGerenciarListas();
+                break;
+            case '4':
+                menuVerResultados();
+                break;
+            case '5':
+                console.log('Encerrando o programa...');
+                rl.close();
+                process.exit(0);
+            default:
+                console.log('Opção inválida.');
+                exibirMenuPrincipal();
+        }
+    });
+}
+
+
+function menuConfigurarRegras() {
+    console.log('\n--- Configurar Regras de Bloqueio ---');
+    console.log(`1. Bloquear requisições HTTP (atual: ${bloquearHTTP ? 'Sim' : 'Não'})`);
+    console.log(`2. Bloquear métodos suspeitos (atual: ${bloquearMetodos ? 'Sim' : 'Não'})`);
+    console.log(`3. Bloquear geolocalização suspeita (atual: ${bloquearGeoSuspeito ? 'Sim' : 'Não'})`);
+    console.log('4. Voltar ao menu principal');
+    rl.question('Escolha uma opção: ', (opcao) => {
+        switch (opcao) {
+            case '1':
+                bloquearHTTP = !bloquearHTTP;
+                logConfig(`Bloqueio de requisições HTTP ${bloquearHTTP ? 'ativado' : 'desativado'}.`);
+                menuConfigurarRegras();
+                break;
+            case '2':
+                bloquearMetodos = !bloquearMetodos;
+                logConfig(`Bloqueio de métodos suspeitos ${bloquearMetodos ? 'ativado' : 'desativado'}.`);
+                menuConfigurarRegras();
+                break;
+            case '3':
+                bloquearGeoSuspeito = !bloquearGeoSuspeito;
+                logConfig(`Bloqueio de geolocalização suspeita ${bloquearGeoSuspeito ? 'ativado' : 'desativado'}.`);
+                menuConfigurarRegras();
+                break;
+            case '4':
+                exibirMenuPrincipal();
+                break;
+            default:
+                console.log('Opção inválida.');
+                menuConfigurarRegras();
+        }
+    });
+}
+
+function menuGerenciarListas() {
+    console.log('\n--- Gerenciar Listas ---');
+    console.log('1. Adicionar IP à blocklist');
+    console.log('2. Remover IP da blocklist');
+    console.log('3. Adicionar IP à allowlist');
+    console.log('4. Remover IP da allowlist');
+    console.log('5. Voltar ao menu principal');
+    rl.question('Escolha uma opção: ', (opcao) => {
+        switch (opcao) {
+            case '1':
+                rl.question('Digite o IP para adicionar à blocklist: ', (ip) => {
+                    adicionarNaBlocklist(ip);
+                    menuGerenciarListas();
+                });
+                break;
+            case '2':
+                rl.question('Digite o IP para remover da blocklist: ', (ip) => {
+                    removerDaBlocklist(ip);
+                    menuGerenciarListas();
+                });
+                break;
+            case '3':
+                rl.question('Digite o IP para adicionar à allowlist: ', (ip) => {
+                    adicionarNaAllowList(ip);
+                    menuGerenciarListas();
+                });
+                break;
+            case '4':
+                rl.question('Digite o IP para remover da allowlist: ', (ip) => {
+                    removerDaAllowlist(ip);
+                    menuGerenciarListas();
+                });
+                break;
+            case '5':
+                exibirMenuPrincipal();
+                break;
+            default:
+                console.log('Opção inválida.');
+                menuGerenciarListas();
+        }
+    });
+}
+
+function menuVerResultados() {
+    console.log('\n--- Ver Resultados e Listas ---');
+    console.log('1. Ver resultados da última análise');
+    console.log('2. Ver blocklist');
+    console.log('3. Ver allowlist');
+    console.log('4. Ver logs de configuração');
+    console.log('5. Ver logs de firewall');
+    console.log('6. Voltar ao menu principal');
+    rl.question('Escolha uma opção: ', (opcao) => {
+        switch (opcao) {
+            case '1':
+                console.log(JSON.stringify(resultados, null, 2));
+                menuVerResultados();
+                break;
+            case '2':
+                console.log(JSON.stringify(Array.from(blocklist.entries()), null, 2));
+                menuVerResultados();
+                break;
+            case '3':
+                console.log(JSON.stringify(Array.from(allowlist.entries()), null, 2));
+                menuVerResultados();
+                break;
+            case '4':
+                fs.readFile(path.join(LOG_DIR, 'config_log.txt'), 'utf8', (err, data) => {
+                    if (err) {
+                        console.log('Erro ao ler o arquivo de log de configuração:', err);
+                    } else {
+                        console.log(data);
+                    }
+                    menuVerResultados();
+                });
+                break;
+            case '5':
+                fs.readFile(path.join(LOG_DIR, 'firewall_log.txt'), 'utf8', (err, data) => {
+                    if (err) {
+                        console.log('Erro ao ler o arquivo de log do firewall:', err);
+                    } else {
+                        console.log(data);
+                    }
+                    menuVerResultados();
+                });
+                break;
+            case '6':
+                exibirMenuPrincipal();
+                break;
+            default:
+                console.log('Opção inválida.');
+                menuVerResultados();
+        }
+    });
+}
+
+function iniciarPrograma() {
+    console.log('Iniciando o firewall...');
+    carregarAllowlist();
+    carregarBlocklist();
+    iniciarLimpezaPeriodica()
+    limparBlocklistExpirada();
+    exibirMenuPrincipal();
+}
+
+iniciarPrograma();
+
+/*
 logConfig('Iniciando o firewall...');
 carregarAllowlist();
 carregarBlocklist();
 iniciarLimpezaPeriodica();
 perguntas();
+*/

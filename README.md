@@ -25,13 +25,13 @@ Projeto para o processo seletivo da vaga de Security Engineer da CloudWalk. Desa
 ## Requisitos
 
 - Node.js (versão 12.0 ou superior)
-- npm (normalmente vem com Node.js)
+- npm 
 
 ## Estrutura do Projeto
 
 ```
 src/
-│   firewall.js
+│   js-fw.js
 │   test-dataset.csv
 │
 ├───logs/
@@ -50,12 +50,12 @@ src/
 
 1. Clone o repositório:
    ```
-   git clone https://github.com/seu-usuario/firewall-simulado.git
+   git clone https://github.com/fcelas/security-engineer-cloudwalk
    ```
 
 2. Navegue até o diretório do projeto:
    ```
-   cd firewall-simulado
+   cd security-engineer-cloudwalk
    ```
 
 3. Instale as dependências:
@@ -65,13 +65,31 @@ src/
 
 ## Uso
 
-Para executar o firewall simulado:
+Para executar o firewall:
 
 ```
-node src/firewall.js
+node src/js-fw.js
 ```
 
-Siga as instruções no console para configurar as opções do firewall e analisar o tráfego.
+Após iniciar o programa, você será apresentado a um menu principal com as seguintes opções:
+
+1. Iniciar análise de tráfego
+2. Configurar regras de bloqueio
+3. Gerenciar listas (blocklist/allowlist)
+4. Ver resultados e listas
+5. Sair
+
+### Fluxo de Operação
+
+1. **Configurar Regras**: Use a opção 2 do menu principal para configurar as regras de bloqueio antes de iniciar a análise.
+
+2. **Gerenciar Listas**: Use a opção 3 para adicionar ou remover IPs da blocklist e allowlist conforme necessário.
+
+3. **Iniciar Análise**: Selecione a opção 1 para iniciar a análise do tráfego. O programa processará o arquivo CSV de entrada e aplicará as regras configuradas.
+
+4. **Ver Resultados**: Após a análise, o programa retornará automaticamente ao menu principal. Use a opção 4 para visualizar os resultados da análise, as listas de IPs e os logs.
+
+5. **Repetir ou Sair**: Você pode realizar múltiplas análises, ajustar configurações ou gerenciar listas conforme necessário. Use a opção 5 para sair do programa quando terminar.
 
 ## Funções Principais
 
@@ -111,35 +129,52 @@ O firewall permite configurar:
 # Processo de criação do programa:
 ## Parâmetros e casos de uso:
 - **ClientIP:** Endereço IP de Origem;
-  - Bloquear/permitir IPs específicos: Blocklist ou allowlist com base nos endereços IPs conhecidos.
-  - Detectar IPs suspeitos: Analisar atividades anômalas como requisições excessivas de um único IP, o que pode ser indicativo de ataques de força bruta ou DDoS.
 - **ClientRequestHost:** Host de Destino;
-  - Filtragem de Domínios: Bloquear ou permitir requisições para domínios específicos, especialmente se houver hosts maliciosos ou conhecidos por phishing;
 - **ClientRequestMethod:** Método HTTP;
-  - Detectar tentativas de exploração: Bloquear métodos como:
-    - `PUT`
-    - `DELETE`
-    - `PATCH`
-    - `OPTIONS`
 - **ClientRequestPath:** URI Requisitada;
-  - Inspeção de padrões de URI: Requisições que contêm strings específicas, como ../../ (tentativas de path traversal) ou parâmetros suspeitos, podem indicar ataques de injeção ou exploração de vulnerabilidades.
-  - Bloqueio de acessos a URIs específicas: Proteger páginas sensíveis (ex.: /admin, /login, /config).
 - **ClientRequestReferer:** Referer da Requisição;
-  - Análise de Referência: Verificar se as requisições vêm de sites de referência legítimos. Referers de sites desconhecidos ou maliciosos podem indicar tentativas de redirecionamento ou ataques de phishing.
 - **ClientRequestScheme:** Esquema;
-  - Bloquear HTTP: Criar opção de política que permita bloquear ou permitir HTTP;
 - **ClientRequestUserAgent:** User-Agent;
-  - Bloquear User-Agents desconhecidos: Podem ser utilizados por bots;
 - **ClientASN:** ASN;
-  - Detecção de tráfego de redes conhecidas por atividades maliciosas: Alguns ASN são notórios por serem utilizados por atacantes ou botnets.
 - **ClientCountry:** País de Origem;
-  - Geofencing: Bloquear tráfego de países ou ASN específicos, dependendo do cenário.
 - **ClientRequestBytes:** Volume de Dados;
-  - Bloqueio de requisições muito grandes: Detectar e bloquear requisições que excedem um determinado tamanho, já que grandes requisições podem ser indicativas de ataques de negação de serviço (DDoS) ou upload de arquivos maliciosos.
 - **EdgeStartTimestamp:** Timestamp;
-  - Detecção de tráfego anômalo baseado no tempo: Monitorar a frequência de requisições de um IP em um curto intervalo de tempo, o que pode indicar atividades maliciosas como ataques de força bruta ou DDoS.
 - **ClientSrcPort:** Porta de Origem;
-  - Análise de portas incomuns: Embora o foco geralmente seja na porta de destino, portas de origem incomuns podem indicar tentativas de disfarçar tráfego malicioso.
+
+## Tipos de Detecção e Ação
+
+1. **Blocklist Temporária**: 
+   - IPs adicionados manualmente ou por detecção de ameaças são bloqueados por 12 horas.
+   - Após 12 horas, os IPs são automaticamente removidos da blocklist.
+
+2. **Allowlist Permanente**:
+   - IPs adicionados manualmente são sempre permitidos, ignorando outras regras.
+
+3. **Bloqueio de HTTP**:
+   - Opção para bloquear todas as requisições HTTP, permitindo apenas HTTPS.
+
+4. **Detecção de Métodos HTTP Suspeitos**:
+   - Bloqueia métodos como PUT, DELETE, PATCH, OPTIONS quando ativado.
+
+5. **Bloqueio por Geolocalização**:
+   - Opção para bloquear tráfego de países considerados de risco (ex: 'cn' para China).
+
+6. **Detecção de Padrões de Ataque**:
+   - Usa expressões regulares para identificar padrões de ataques conhecidos nas URLs.
+   - Inclui detecção de XSS, injeção de SQL, tentativas de path traversal, entre outros.
+
+7. **Limite de Tamanho de Requisição**:
+   - Bloqueia requisições com mais de 4000 bytes para prevenir ataques de sobrecarga.
+
+8. **Detecção de DDoS**:
+   - Monitora o número de portas diferentes usadas por um único IP em um curto período.
+   - Bloqueia o IP se exceder um limite predefinido de portas únicas.
+
+9. **Logging de Ações**:
+   - Todas as ações do firewall são registradas para auditoria e análise posterior.
+
+10. **Configuração Dinâmica**:
+    - Permite ativar/desativar diferentes mecanismos de proteção através de um menu interativo.
 
 ## Campos dos logs:
 - **Severidade:** diz respeito ao nível de "preocupação" de uma requisição. Ex: requisições em países suspeitos possuem severidade mais alta.

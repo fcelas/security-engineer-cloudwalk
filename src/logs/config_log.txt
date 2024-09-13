@@ -298,3 +298,31 @@
 2024-09-13T16:17:43.745Z - Análise de tráfego concluída. Resultados salvos no arquivo analise_trafego.json.
 2024-09-13T16:17:55.612Z - Análise finalizada. Programa encerrado.
 2024-09-13T16:17:55.613Z - Limpeza periódica da blocklist interrompida.
+2024-09-13T21:32:09.030Z - Arquivo de allowlist não encontrado. Criando uma nova allowlist.
+2024-09-13T21:32:09.033Z - Blocklist temporária carregada do arquivo.
+2024-09-13T21:32:09.045Z - Iniciando o firewall...
+2024-09-13T21:32:09.046Z - Arquivo de allowlist não encontrado. Criando uma nova allowlist.
+2024-09-13T21:32:09.048Z - Blocklist temporária carregada do arquivo.
+2024-09-13T21:32:09.049Z - Limpeza periódica da blocklist iniciada.
+2024-09-13T21:32:22.123Z - Análise de tráfego concluída. Resultados salvos no arquivo analise_trafego.json.
+2024-09-13T21:32:27.437Z - Análise finalizada. Programa encerrado.
+2024-09-13T21:32:27.439Z - Limpeza periódica da blocklist interrompida.
+2024-09-13T21:32:31.329Z - Arquivo de allowlist não encontrado. Criando uma nova allowlist.
+2024-09-13T21:32:31.332Z - Blocklist temporária carregada do arquivo.
+2024-09-13T21:32:31.343Z - Iniciando o firewall...
+2024-09-13T21:32:31.344Z - Arquivo de allowlist não encontrado. Criando uma nova allowlist.
+2024-09-13T21:32:31.345Z - Blocklist temporária carregada do arquivo.
+2024-09-13T21:32:31.346Z - Limpeza periódica da blocklist iniciada.
+2024-09-13T21:33:04.827Z - Arquivo de allowlist não encontrado. Criando uma nova allowlist.
+2024-09-13T21:33:04.829Z - Blocklist temporária carregada do arquivo.
+2024-09-13T21:33:12.105Z - Bloqueio de requisições HTTP ativado.
+2024-09-13T21:33:15.104Z - Bloqueio de métodos suspeitos ativado.
+2024-09-13T21:33:16.641Z - Bloqueio de geolocalização suspeita ativado.
+2024-09-13T21:33:27.658Z - Análise de tráfego concluída. Resultados salvos no arquivo analise_trafego.json.
+2024-09-13T21:33:33.008Z - Análise finalizada. Programa encerrado.
+2024-09-13T21:33:34.498Z - Arquivo de allowlist não encontrado. Criando uma nova allowlist.
+2024-09-13T21:33:34.501Z - Blocklist temporária carregada do arquivo.
+2024-09-13T21:34:14.680Z - IP 1 adicionado à blocklist temporária.
+2024-09-13T21:35:39.986Z - Arquivo de allowlist não encontrado. Criando uma nova allowlist.
+2024-09-13T21:35:39.989Z - Blocklist temporária carregada do arquivo.
+2024-09-13T21:35:53.319Z - Análise de tráfego concluída. Resultados salvos no arquivo analise_trafego.json.
