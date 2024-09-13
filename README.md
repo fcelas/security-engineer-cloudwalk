@@ -11,6 +11,103 @@ Projeto para o processo seletivo da vaga de Security Engineer da CloudWalk. Desa
   - Blocklist onde todo o tráfego proveniente de IPs especificados seja bloqueado por 12 horas.
   - Ações de bloqueio e permissão devem ser rastreáveis e reversíveis.
 
+## Características
+
+- Análise de tráfego HTTP e HTTPS
+- Detecção de métodos HTTP suspeitos
+- Bloqueio baseado em geolocalização
+- Detecção de ataques por padrões de URL
+- Blocklist temporária (12 horas)
+- Allowlist permanente
+- Detecção de possíveis ataques DDoS
+- Logging de ações e configurações
+
+## Requisitos
+
+- Node.js (versão 12.0 ou superior)
+- npm (normalmente vem com Node.js)
+
+## Estrutura do Projeto
+
+```
+src/
+│   firewall.js
+│   test-dataset.csv
+│
+├───logs/
+│       firewall_log.txt
+│       config_log.txt
+│
+├───listas/
+│       blocklist_temp.json
+│       allowlist.json
+│
+└───resultados/
+        analise_trafego.json
+```
+
+## Instalação
+
+1. Clone o repositório:
+   ```
+   git clone https://github.com/seu-usuario/firewall-simulado.git
+   ```
+
+2. Navegue até o diretório do projeto:
+   ```
+   cd firewall-simulado
+   ```
+
+3. Instale as dependências:
+   ```
+   npm install
+   ```
+
+## Uso
+
+Para executar o firewall simulado:
+
+```
+node src/firewall.js
+```
+
+Siga as instruções no console para configurar as opções do firewall e analisar o tráfego.
+
+## Funções Principais
+
+### `analisaTrafego(ip, scheme, metodo, pais, path, bytes, porta, host)`
+Analisa cada requisição de tráfego e determina se deve ser bloqueada ou permitida.
+
+### `detectarDDoS(ip, porta)`
+Detecta possíveis ataques DDoS baseados em múltiplas portas de origem do mesmo IP.
+
+### `adicionarNaBlocklist(ip)` / `adicionarNaAllowList(ip)`
+Adiciona um IP à blocklist temporária ou à allowlist permanente.
+
+### `removerDaBlocklist(ip)` / `removerDaAllowlist(ip)`
+Remove um IP da blocklist ou allowlist.
+
+### `processarTrafego()`
+Lê o arquivo CSV de tráfego e processa cada entrada.
+
+### `logAcao(resultado)` / `logConfig(mensagem)`
+Registra ações do firewall e mudanças de configuração.
+
+## Configuração
+
+O firewall permite configurar:
+- Bloqueio de requisições HTTP
+- Bloqueio de métodos HTTP suspeitos
+- Bloqueio baseado em geolocalização suspeita
+
+## Arquivos de Saída
+
+- `logs/firewall_log.txt`: Log de todas as ações do firewall
+- `logs/config_log.txt`: Log de mudanças na configuração
+- `listas/blocklist_temp.json`: Lista de IPs bloqueados temporariamente
+- `listas/allowlist.json`: Lista de IPs permitidos permanentemente
+- `resultados/analise_trafego.json`: Resultado da análise de tráfego
+
 # Processo de criação do programa:
 ## Parâmetros e casos de uso:
 - **ClientIP:** Endereço IP de Origem;
@@ -45,12 +142,6 @@ Projeto para o processo seletivo da vaga de Security Engineer da CloudWalk. Desa
   - Análise de portas incomuns: Embora o foco geralmente seja na porta de destino, portas de origem incomuns podem indicar tentativas de disfarçar tráfego malicioso.
 
 ## Campos dos logs:
-- **Action:** Ação tomada pelo Firewall.
-  - Permit: tráfego liberado;
-  - Drop: tráfego dropado;
-  - Allow: tráfego permitido;
-  - Block: tráfego bloqueado;
-
 - **Severidade:** diz respeito ao nível de "preocupação" de uma requisição. Ex: requisições em países suspeitos possuem severidade mais alta.
   - 0: info
   - 1: baixa
@@ -58,14 +149,8 @@ Projeto para o processo seletivo da vaga de Security Engineer da CloudWalk. Desa
   - 3: alta
   - 4: crítica (ataque)
 
-## Regras e Políticas do FW:
-**1. Verifica se IP de Origem está em Blocklist ou Allowlist;**
 
-**2. Verifica se esquema HTTP deve ser bloqueado;**
 
-**3. Bloqueia métodos suspeitos;**
-
-**4. Bloqueia tentativas de ataque com base no ClientRequestPath;**
 
 
 
