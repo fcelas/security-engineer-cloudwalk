@@ -9,7 +9,6 @@ const rl = readline.createInterface({
 
 let blocklist = new Map();
 let allowlist = new Map();
-//const allowlist = fs.readFileSync('allowlist.txt', 'utf-8').split('\n').map(ip => ip.trim());
 
 let bloquearHTTP = false;
 let bloquearMetodos = false;
@@ -35,11 +34,49 @@ const regexMap = [
     { regex: /<script>alert\(['"]XSS['"]\)<\/script>/, descricao: 'ataque XSS via script' }
 ];
 
+const portasPorIP = new Map();
+const limiteDePorts = 10;
+const intervaloDeTempoMS = 60000;
+
+function detectarDDoS(ip, porta) {
+    const agora = Date.now();
+    if (!portasPorIP.has(ip)) {
+        portasPorIP.set(ip, { portas: new Set([porta]), ultimoCheck: agora });
+        return false;
+    }
+
+    const dados = portasPorIP.get(ip);
+    if (agora - dados.ultimoCheck > intervaloDeTempoMS) {
+        dados.portas.clear();
+        dados.ultimoCheck = agora;
+    }
+
+    dados.portas.add(porta);
+    return dados.portas.size > limiteDePorts;
+}
+
+function logConfig(mensagem) {
+    const logEntry = `${new Date().toISOString()} - ${mensagem}\n`;
+    fs.appendFileSync('config_log.txt', logEntry);
+}
+
 function adicionarNaBlocklist(ip) {
     const agora = Date.now();
     blocklist.set(ip, agora);
     salvarBlocklist();
     console.log(`IP ${ip} adicionado à blocklist temporária.`);
+    logConfig(`IP ${ip} adicionado à blocklist temporária.`);
+}
+
+function removerDaBlocklist(ip) {
+    if (blocklist.has(ip)) {
+        blocklist.delete(ip);
+        salvarBlocklist();
+        console.log(`IP ${ip} removido da blocklist.`);
+        logConfig(`IP ${ip} removido da blocklist.`);
+    } else {
+        console.log(`IP ${ip} não encontrado na blocklist.`);
+    }
 }
 
 function estaNaBlocklist(ip) {
@@ -55,6 +92,7 @@ function estaNaBlocklist(ip) {
             blocklist.delete(ip);
             salvarBlocklist();
             console.log(`IP ${ip} removido da blocklist temporária após 12 horas.`);
+            logConfig(`IP ${ip} removido da blocklist temporária após 12 horas.`);
             return false;
         }
     }
@@ -69,6 +107,7 @@ function limparBlocklistExpirada() {
         if (agora - tempo >= dozeHorasEmMs) {
             blocklist.delete(ip);
             console.log(`IP ${ip} removido da blocklist temporária durante limpeza.`);
+            logConfig(`IP ${ip} removido da blocklist temporária durante limpeza.`);
         }
     }
     salvarBlocklist();
@@ -84,16 +123,29 @@ function carregarBlocklist() {
         const dados = fs.readFileSync('blocklist_temp.json', 'utf-8');
         blocklist = new Map(JSON.parse(dados));
         console.log('Blocklist temporária carregada do arquivo.');
+        logConfig('Blocklist temporária carregada do arquivo.');
     } catch (error) {
         console.log('Arquivo de blocklist não encontrado. Criando uma nova blocklist.');
+        logConfig('Arquivo de blocklist não encontrado. Criando uma nova blocklist.');
     }
 }
 
 function adicionarNaAllowList(ip) {
-    const agora = Date.now();
-    allowlist.set(ip, agora);
+    allowlist.set(ip, true);
     salvarAllowlist();
     console.log(`IP ${ip} adicionado à allowlist.`);
+    logConfig(`IP ${ip} adicionado à allowlist.`);
+}
+
+function removerDaAllowlist(ip) {
+    if (allowlist.has(ip)) {
+        allowlist.delete(ip);
+        salvarAllowlist();
+        console.log(`IP ${ip} removido da allowlist.`);
+        logConfig(`IP ${ip} removido da allowlist.`);
+    } else {
+        console.log(`IP ${ip} não encontrado na allowlist.`);
+    }
 }
 
 function salvarAllowlist() {
@@ -104,21 +156,28 @@ function salvarAllowlist() {
 function carregarAllowlist() {
     try {
         const dados = fs.readFileSync('allowlist.json', 'utf-8');
-        blocklist = new Map(JSON.parse(dados));
+        allowlist = new Map(JSON.parse(dados));
         console.log('Allowlist carregada do arquivo.');
+        logConfig('Allowlist carregada do arquivo.');
     } catch (error) {
         console.log('Arquivo de allowlist não encontrado. Criando uma nova allowlist.');
+        logConfig('Arquivo de allowlist não encontrado. Criando uma nova allowlist.');
     }
 }
 
-function analisaTrafego(ip, scheme, metodo, pais, path, bytes) {
-    let resultado = { status: '', ip: ip, scheme: scheme, metodo: metodo, pais: pais, severidade: '0', path: path };
+function analisaTrafego(ip, scheme, metodo, pais, path, bytes, porta, host) {
+    let resultado = { status: '', ip: ip, scheme: scheme, metodo: metodo, pais: pais, severidade: '0', path: path, destino: host };
 
     if (estaNaBlocklist(ip)) {
         resultado.status = 'Tráfego bloqueado: blocklist temporária';
-        resultado.severidade = '4';
+        resultado.severidade = '0';
     } else if (allowlist.has(ip)) {
         resultado.status = 'Tráfego permitido: allowlist';
+    } else if (detectarDDoS(ip, porta)) {
+        resultado.status = 'Tráfego bloqueado: Possível ataque DDoS detectado';
+        resultado.severidade = '4';
+        adicionarNaBlocklist(ip);
+        logConfig(`Possível ataque DDoS detectado do IP ${ip}. IP adicionado à blocklist.`);
     } else {
         if (!bloquearHTTP && scheme === 'http') {
             resultado.status = 'Tráfego HTTP permitido';
@@ -152,13 +211,14 @@ function analisaTrafego(ip, scheme, metodo, pais, path, bytes) {
 
         if (bytes > 4000) {
             resultado.severidade = '4'
-            resultado.status = `Tráfego bloqueado:  requisição de ${bytes}B excede limite máximo de tamanho`
+            resultado.status = `Tráfego bloqueado: requisição de ${bytes}B excede limite máximo de tamanho`
         }
     }
 
     resultados.push(resultado);
     logAcao(resultado);
 }
+
 
 function logAcao(resultado) {
     const logEntry = `${new Date().toISOString()} - IP: ${resultado.ip}, Status: ${resultado.status}, Severidade: ${resultado.severidade}\n`;
@@ -169,16 +229,25 @@ function perguntas() {
     rl.question('Deseja bloquear requisições HTTP? (s/n): ', (answerHTTP) => {
         if (answerHTTP.toLowerCase() === 's') {
             bloquearHTTP = true;
-        } 
+            logConfig('Bloqueio de requisições HTTP ativado.');
+        } else {
+            logConfig('Bloqueio de requisições HTTP desativado.');
+        }
 
         rl.question('Bloquear métodos suspeitos? (s/n): ', (answerMetodos) => {
             if (answerMetodos.toLowerCase() === 's') {
                 bloquearMetodos = true;
+                logConfig('Bloqueio de métodos suspeitos ativado.');
+            } else {
+                logConfig('Bloqueio de métodos suspeitos desativado.');
             }
 
             rl.question('Bloquear Geolocalização suspeita? (s/n): ', (answerGeo) => {
                 if (answerGeo.toLowerCase() === 's') {
                     bloquearGeoSuspeito = true;
+                    logConfig('Bloqueio de geolocalização suspeita ativado.');
+                } else {
+                    logConfig('Bloqueio de geolocalização suspeita desativado.');
                 }
             
                 processarTrafego();
@@ -197,13 +266,15 @@ function processarTrafego() {
             const pais = row.ClientCountry.toLowerCase();
             const path = row.ClientRequestPath;
             const bytes = row.ClientRequestBytes;
-            analisaTrafego(ipOrigem, scheme, metodo, pais, path, bytes);
+            const porta = row.ClientSrcPort;
+            const host = row.ClientRequestHost;
+            analisaTrafego(ipOrigem, scheme, metodo, pais, path, bytes, porta, host);
         })
         .on('end', () => {
             fs.writeFileSync('analise_trafego.json', JSON.stringify(resultados, null, 2));
             console.log('Análise de tráfego concluída. Resultados salvos no arquivo analise_trafego.json.');
+            logConfig('Análise de tráfego concluída. Resultados salvos no arquivo analise_trafego.json.');
             perguntarAdicionarIP();
-            perguntarAdicionarIPAllow()
         });
 }
 
@@ -211,13 +282,16 @@ let intervaloLimpeza;
 
 function iniciarLimpezaPeriodica() {
     intervaloLimpeza = setInterval(limparBlocklistExpirada, 60 * 60 * 1000);
+    logConfig('Limpeza periódica da blocklist iniciada.');
 }
 
 function pararLimpezaPeriodica() {
     if (intervaloLimpeza) {
         clearInterval(intervaloLimpeza);
+        logConfig('Limpeza periódica da blocklist interrompida.');
     }
 }
+
 function perguntarAdicionarIP() {
     rl.question('Deseja adicionar algum IP à blocklist? (s/n): ', (resposta) => {
         if (resposta.toLowerCase() === 's') {
@@ -226,9 +300,20 @@ function perguntarAdicionarIP() {
                 perguntarAdicionarIP(); 
             });
         } else {
-            pararLimpezaPeriodica();
-            rl.close();
- 
+            perguntarRemoverIPBlock();
+        }
+    });
+}
+
+function perguntarRemoverIPBlock() {
+    rl.question('Deseja remover algum IP da blocklist? (s/n): ', (resposta) => {
+        if (resposta.toLowerCase() === 's') {
+            rl.question('Digite o IP que deseja remover da blocklist: ', (ip) => {
+                removerDaBlocklist(ip);
+                perguntarRemoverIPBlock();
+            });
+        } else {
+            perguntarAdicionarIPAllow();
         }
     });
 }
@@ -241,14 +326,30 @@ function perguntarAdicionarIPAllow() {
                 perguntarAdicionarIPAllow(); 
             });
         } else {
-            console.log('Análise finalizada. Encerrando o programa.');
-            rl.close();
-            process.exit(0); 
+            perguntarRemoverIPAllow();
         }
     });
 }
 
-carregarAllowlist()
+function perguntarRemoverIPAllow() {
+    rl.question('Deseja remover algum IP da Allowlist? (s/n): ', (resposta) => {
+        if (resposta.toLowerCase() === 's') {
+            rl.question('Digite o IP que deseja remover da allowlist: ', (ip) => {
+                removerDaAllowlist(ip);
+                perguntarRemoverIPAllow();
+            });
+        } else {
+            console.log('Análise finalizada. Encerrando o programa.');
+            logConfig('Análise finalizada. Programa encerrado.');
+            pararLimpezaPeriodica();
+            rl.close();
+            process.exit(0);
+        }
+    });
+}
+
+logConfig('Iniciando o firewall...');
+carregarAllowlist();
 carregarBlocklist();
-iniciarLimpezaPeriodica(); 
+iniciarLimpezaPeriodica();
 perguntas();
